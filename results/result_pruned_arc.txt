@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.48976109215017066,
+      "acc_stderr": 0.014608326906285019,
+      "acc_norm": 0.5170648464163823,
+      "acc_norm_stderr": 0.014602878388536597
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "pruned-llama-experimental",
+    "model_args": "pretrained=/home/zhangyihan/LMFlow/prune_log/llama-13b-mha-2-38-0.25-mlp-0.25-wikitext-512exm-1024--first,dtype=float16,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "8",
+    "batch_sizes": [],
+    "device": "cuda",
+    "no_cache": false,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

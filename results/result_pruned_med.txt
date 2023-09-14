@@ -1,0 +1,23 @@
+{
+  "results": {
+    "pubmedqa": {
+      "acc": 0.675,
+      "acc_stderr": 0.014818724459095526
+    }
+  },
+  "versions": {
+    "pubmedqa": 0
+  },
+  "config": {
+    "model": "pruned-llama-experimental",
+    "model_args": "pretrained=/home/zhangyihan/LMFlow/prune_log/llama-13b-mha-2-38-0.25-mlp-0.25-wikitext-512exm-1024--first,dtype=float16,use_accelerate=True",
+    "num_fewshot": 5,
+    "batch_size": "4",
+    "batch_sizes": [],
+    "device": "cuda",
+    "no_cache": false,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

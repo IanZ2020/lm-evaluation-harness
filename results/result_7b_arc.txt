@@ -1,0 +1,25 @@
+{
+  "results": {
+    "arc_challenge": {
+      "acc": 0.4803754266211604,
+      "acc_stderr": 0.014600132075947084,
+      "acc_norm": 0.5119453924914675,
+      "acc_norm_stderr": 0.01460722034059716
+    }
+  },
+  "versions": {
+    "arc_challenge": 0
+  },
+  "config": {
+    "model": "hf-causal-experimental",
+    "model_args": "pretrained=pinkmanlove/llama-7b-hf,dtype=float16,use_accelerate=True",
+    "num_fewshot": 25,
+    "batch_size": "4",
+    "batch_sizes": [],
+    "device": "cuda",
+    "no_cache": false,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "description_dict": {}
+  }
+}

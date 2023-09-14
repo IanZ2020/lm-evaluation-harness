@@ -12,6 +12,7 @@ from transformers import BatchEncoding
 
 from lm_eval import utils
 from lm_eval.base import BaseLM
+from LLMPruner.models.hf_llama import PrunedLlamaForCausalLM, PrunedLlamaConfig
 
 TokenSequence = Union[List[int], torch.LongTensor, torch.Tensor, BatchEncoding]
 
@@ -375,7 +376,7 @@ class HuggingFaceAutoLM(BaseLM):
         """
         if self._add_special_tokens is not None:
             return self._add_special_tokens
-        elif self.AUTO_MODEL_CLASS is transformers.AutoModelForCausalLM:
+        elif self.AUTO_MODEL_CLASS is transformers.AutoModelForCausalLM or self.AUTO_MODEL_CLASS is PrunedLlamaForCausalLM:
             return False
         elif self.AUTO_MODEL_CLASS is transformers.AutoModelForSeq2SeqLM:
             return True
@@ -575,6 +576,10 @@ class AutoCausalLM(HuggingFaceAutoLM):
             generations, max_context_size=inputs["input_ids"].size(1)
         )
 
+class HFPrunedLLaMA(AutoCausalLM):
+    AUTO_CONFIG_CLASS = PrunedLlamaConfig
+    AUTO_MODEL_CLASS = PrunedLlamaForCausalLM
+    AUTO_PEFT_CLASS = peft.PeftModel
 
 class AutoSeq2SeqLM(HuggingFaceAutoLM):
     """Seq2Seq language modeling.
