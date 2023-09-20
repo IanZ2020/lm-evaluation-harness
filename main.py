@@ -78,7 +78,7 @@ def main():
 
     if args.output_path:
         os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
-        with open(args.output_path, "w") as f:
+        with open(args.output_path, "a") as f:
             f.write(dumped)
 
     batch_sizes = ",".join(map(str, results["config"]["batch_sizes"]))
